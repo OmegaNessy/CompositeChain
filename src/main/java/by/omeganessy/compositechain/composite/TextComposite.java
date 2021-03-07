@@ -40,15 +40,24 @@ public class TextComposite implements Component {
     }
 
     @Override
+    public void setTextType(TextType type) {
+        this.textType = type;
+    }
+
+    @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (Component t : components) {
-            string.append(t.toString());
-            switch (t.getTextType()) {
-                case WORD -> string.append(WORD_SPLITTER);
-                case PARAGRAPH -> string.append(PARAGRAPH_SPLITTER);
+            if(t.getTextType()==TextType.PARAGRAPH){
+                sb.append("\t");
             }
+            switch (t.getTextType()) {
+                case WORD -> sb.append(WORD_SPLITTER);
+                case PARAGRAPH -> sb.append(PARAGRAPH_SPLITTER);
+            }
+            sb.append(t);
+
         }
-        return string.toString();
+        return sb.toString();
     }
 }

@@ -4,34 +4,41 @@ import java.util.List;
 
 public class Symbol implements Component {
     private char symbol;
+    private TextType type;
 
-    public Symbol(char symbol) {
+    public Symbol(char symbol, TextType type) {
         this.symbol = symbol;
+        this.type=type;
     }
 
     @Override
     public Component getComponent(int index) {
-        return null;
+        throw new UnsupportedOperationException("Symbol.getComponents() method is not supported");
     }
 
     @Override
     public List<Component> getAll() {
-        return null;
+        throw new UnsupportedOperationException("Symbol.getComponents() method is not supported");
     }
 
     @Override
     public boolean removeComponent(Component component) {
-        return false;
+        throw new UnsupportedOperationException("Symbol.getComponents() method is not supported");
     }
 
     @Override
     public boolean addComponent(Component component) {
-        return false;
+        throw new UnsupportedOperationException("Symbol.getComponents() method is not supported");
     }
 
     @Override
     public TextType getTextType() {
         return TextType.SYMBOL;
+    }
+
+    @Override
+    public void setTextType(TextType type) {
+        throw new UnsupportedOperationException("Symbol.getComponents() method is not supported");
     }
 
     @Override
@@ -52,10 +59,7 @@ public class Symbol implements Component {
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        string.append("Sybol{\n");
-        string.append("sybol=");
         string.append(symbol);
-        string.append("\n}");
         return string.toString();
     }
 }

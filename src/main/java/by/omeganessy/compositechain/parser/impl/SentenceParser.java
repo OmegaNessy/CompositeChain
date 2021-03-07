@@ -7,8 +7,8 @@ import by.omeganessy.compositechain.exception.CustomException;
 import by.omeganessy.compositechain.parser.Parser;
 
 public class SentenceParser implements Parser {
-    final String LEXEME_SPLITTER = "\s";
-    private Parser lexemeParser = new LexemeParser();
+    final String WORD_SPLITTER = "\s";
+    private Parser wordParser = new WordParser();
 
     @Override
     public Component parse(String text) throws CustomException {
@@ -16,10 +16,10 @@ public class SentenceParser implements Parser {
             throw new CustomException("sentence is null or empty");
         }
         Component component = new TextComposite(TextType.SENTENCE);
-        String[] lexemes = text.split(LEXEME_SPLITTER);
-        for (String lexeme : lexemes) {
-            Component lexemeComponent = lexemeParser.parse(lexeme);
-            component.addComponent(lexemeComponent);
+        String[] words = text.split(WORD_SPLITTER);
+        for (String word : words) {
+            Component wordComponent = wordParser.parse(word);
+            component.addComponent(wordComponent);
         }
         return component;
     }

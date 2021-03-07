@@ -8,4 +8,5 @@ public interface Component {
     boolean removeComponent(Component component);
     boolean addComponent(Component component);
     TextType getTextType();
+    void setTextType(TextType type);
 }
